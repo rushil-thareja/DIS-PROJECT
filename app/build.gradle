@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -18,8 +18,8 @@ android {
         }
     }
     compileOptions{
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility '1.8'
+        targetCompatibility '1.8'
     }
 }
 
@@ -31,11 +31,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'com.google.ar.sceneform:assets:1.15.0'
 
 }
 apply plugin: 'com.google.ar.sceneform.plugin'
 
-
+apply plugin: 'com.google.gms.google-services'
 sceneform.asset('sampledata/hamburger.obj',
         'default',
         'sampledata/hamburger.sfa',
