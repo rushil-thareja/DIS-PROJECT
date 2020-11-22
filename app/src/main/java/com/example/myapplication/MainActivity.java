@@ -82,15 +82,22 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String choose_dish;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //call the getIntent() getstring methods here to get  string from calling activity then enter that into choose_dish
+
+        choose_dish = "dish";
         FirebaseApp.initializeApp(this);
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference modelRef = storage.getReference().child("restaurant/dish/out.glb");
+        String path = "restaurant/"+choose_dish+"/out.glb";
+        StorageReference modelRef = storage.getReference().child(path);
 
         ArFragment arFragment = (ArFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.arFragment);
@@ -129,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ModelRenderable renderable;
+
 
     private void buildModel(File file) {
 
